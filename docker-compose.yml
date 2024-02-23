@@ -1,14 +1,24 @@
 services:
   rabbitmq:
     image: 'rabbitmq:3-management'
+    hostname: broker
     ports: [15672:15672]
     environment:
       - RABBITMQ_DEFAULT_USER=admin
       - RABBITMQ_DEFAULT_PASS=admin
+
   policy-api:
     image: 'ruby:3.3'
+    hostname: app
+    working_dir: /app
+    volumes:
+      - .:/app
+      - rubygems:/usr/local/bundle
     ports: [3000:3000]
     depends_on:
       - rabbitmq
-    working_dir: /app
     tty: true
+    stdin_open: true
+
+volumes:
+  rubygems:
