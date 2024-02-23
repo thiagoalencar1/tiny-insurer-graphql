@@ -1,4 +1,7 @@
 services:
+  app:
+    image: 'ruby:3.3'
+    tty: true
   rabbitmq:
     image: 'rabbitmq:3.12.13-management'
     ports: [15672:15672]
