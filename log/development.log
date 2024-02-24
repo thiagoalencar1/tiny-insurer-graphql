@@ -8,3 +8,12 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 23ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 5685)
 
 
+Started GET "/graphql" for ::1 at 2024-02-24 04:32:05 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/graphql"):
+  
+Started GET "/favicon.ico" for ::1 at 2024-02-24 04:32:06 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
