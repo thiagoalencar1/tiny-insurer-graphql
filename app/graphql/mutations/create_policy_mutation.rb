@@ -4,7 +4,7 @@ module Mutations
   class CreatePolicyMutation < Mutations::BaseMutation
     argument :policy, Types::PolicyInputType, required: true
 
-    field :result, String, null: false
+    field :success, String, null: false
 
     def resolve(policy:)
       conn = Bunny.new(hostname: "rabbitmq", username: "admin", password: "admin").start
@@ -12,7 +12,7 @@ module Mutations
       queue = ch.queue("policy_created", durable: true)
       queue.publish(parse_policy(policy.to_h))
       conn.close
-      { "result" => "OK" }
+      { "success" => "OK" }
     rescue StandardError => e
       raise GraphQL::ExecutionError, e.message
     end
@@ -25,7 +25,7 @@ module Mutations
         insured_until: policy[:insured_until],
         insured: {
           name: policy[:insured][:name],
-          cpg: policy[:insured][:cpf]
+          cpf: policy[:insured][:cpf]
         },
         vehicle: {
           plate:policy[:vehicle][:plate],
