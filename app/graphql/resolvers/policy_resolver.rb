@@ -5,7 +5,8 @@ module Resolvers
     argument :id, ID, required: true
 
     def resolve(id:)
-      response = Faraday.get("http://policy-service:3001/policies/#{id}")
+      uri = URI("http://policy-service:3001/policies/#{id}")
+      response = Net::HTTP.get_response(uri.host, uri.path, uri.port)
       puts response.body
       JSON.parse(response.body)
     rescue StandardError => e
