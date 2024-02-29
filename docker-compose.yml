@@ -8,6 +8,7 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=admin
       - RABBITMQ_DEFAULT_PASS=admin
+      - TZ=America/Sao_Paulo
     networks:
       - my-bridge
 
@@ -17,6 +18,8 @@ services:
     volumes:
       - .:/app
       - rubygems:/usr/local/bundle
+    environment:
+      - TZ=America/Sao_Paulo
     ports: [3000:3000]
     depends_on:
       - rabbitmq
@@ -24,6 +27,7 @@ services:
     stdin_open: true
     networks:
       - my-bridge
+    command: bash -c "rm -rf tmp/pids/server.pid && bin/setup && rails s -b 0.0.0.0 -p 3000"
 
 volumes:
   rubygems:
