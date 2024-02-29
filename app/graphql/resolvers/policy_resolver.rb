@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module Resolvers
   class PolicyResolver < Resolvers::BaseResolver
-    type Types::PolicyType, null: false
+    type ::Types::PolicyType, null: false
 
     argument :id, ID, required: true
 
