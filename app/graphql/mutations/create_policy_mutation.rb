@@ -9,7 +9,7 @@ module Mutations
     def resolve(policy:)
       conn = Bunny.new(hostname: "rabbitmq", username: "admin", password: "admin").start
       ch = conn.create_channel
-      queue = ch.queue("create_policy", durable: true)
+      queue = ch.queue("create-policy", durable: true)
       queue.publish(policy.to_json)
       conn.close
       { "success" => "OK" }
