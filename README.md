@@ -2,10 +2,11 @@
 
 ## DESCRIPTION
 Tiny Insurer App is a learning process in messaging (with RabbitMQ) and graphql topics.
+
 The app simulates an Insurer Company that receive Insured and Vehicle informations and emmit an insured policy to the client.
 
 This is a two part app that needs to run side-by-side.
-The second-parte is here: link-to-the-second-part.
+The second-parte is here: [Tiny Insurer App - Rest API](https://github.com/thiagoalencar1/tiny-insurer-rest).
 
 ## STACK
 - Docker
@@ -16,6 +17,7 @@ The second-parte is here: link-to-the-second-part.
 - pry-byebug
 - RabbitMQ
 - GraphQL
+
 ## REQUIREMENTS
 - Docker
 
