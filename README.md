@@ -22,5 +22,85 @@ The second-parte is here: [Tiny Insurer App - Rest API](https://github.com/thiag
 - Docker
 
 ## RUN
-## ENDPOINTS AND PAYLOAD
+1. To see this application in action, up both parts with one simple `docker-compose up`.
+2. Access the `localhost:3000/graphiql` or use your favorite API platform like Postman and Insomnia.
+3. Go to the Endpoints and Payloads
+
+### ENDPOINTS AND PAYLOAD
+Get policy by ID
+```graphql
+{
+  policy(id: 1) {
+    id
+    insuredAt
+    insuredUntil
+    insured {
+      id
+      name
+      cpf
+    }
+    vehicle {
+      id
+      plate
+      brand
+      model
+      year
+    }
+  }
+}
+```
+
+Get all Policies
+```graphql
+{
+  policies {
+    id
+    insuredAt
+    insuredUntil
+    insured {
+      id
+      name
+      cpf
+    }
+    vehicle {
+      id
+      plate
+      brand
+      model
+      year
+    }
+  }
+}
+```
+
+Create new policy
+```graphql
+mutation createPolicyMutation(
+  $insuredAt: String!
+  $insuredUntil: String!
+  $insuredName: String!
+  $insuredCpf: String!
+  $vehiclePlate: String!
+  $vehicleBrand: String!
+  $vehicleModel: String!
+  $vehicleYear: Int!
+) {
+  createPolicy(
+    input: {
+      policy: {
+        insuredAt: $insuredAt
+        insuredUntil: $insuredUntil
+        insured: { name: $insuredName, cpf: $insuredCpf }
+        vehicle: {
+          plate: $vehiclePlate
+          brand: $vehicleBrand
+          model: $vehicleModel
+          year: $vehicleYear
+        }
+      }
+    }
+  ){ success }
+}
+```
+
 ## TESTS
