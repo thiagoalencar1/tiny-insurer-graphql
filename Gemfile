@@ -30,6 +30,7 @@ group :development, :test do
   gem "propshaft"
   gem "pry-byebug"
   gem "rspec-rails"
+  gem "graphql-ruby"
 end
 
 group :development do

@@ -101,6 +101,7 @@ GEM
       railties
     graphql (2.2.10)
       base64
+    graphql-ruby (9001.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
@@ -247,6 +248,7 @@ DEPENDENCIES
   debug
   graphiql-rails
   graphql
+  graphql-ruby
   propshaft
   pry-byebug
   puma (>= 5.0)
