@@ -11,6 +11,8 @@ Rails.application.configure do
     ENV["SERVER_HOST_NAME"],
     "http://policy-service:3001/",
     "policy-service:3001",
+    "http://policy-graphql:3003",
+    "policy-graphql:3003"
   ]
 
   # In the development environment your application's code is reloaded any time

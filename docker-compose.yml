@@ -1,6 +1,7 @@
 services:
   rabbitmq:
     image: 'rabbitmq:3-management'
+    container_name: tiny-insurer-rabbitmq
     hostname: broker
     ports:
     - 15672:15672
@@ -12,22 +13,23 @@ services:
     networks:
       - my-bridge
 
-  policy-api:
+  policy-graphql:
     image: 'ruby:3.3'
+    container_name: tiny-insurer-graphql
     working_dir: /app
     volumes:
       - .:/app
       - rubygems:/usr/local/bundle
     environment:
       - TZ=America/Sao_Paulo
-    ports: [3000:3000]
+    ports: [3003:3003]
     depends_on:
       - rabbitmq
     tty: true
     stdin_open: true
     networks:
       - my-bridge
-    command: bash -c "rm -rf tmp/pids/server.pid && bin/setup && rails s -b 0.0.0.0 -p 3000"
+    command: bash -c "rm -rf tmp/pids/server.pid && bin/setup && rails s -b 0.0.0.0 -p 3003"
 
 volumes:
   rubygems:
