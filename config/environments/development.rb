@@ -12,7 +12,8 @@ Rails.application.configure do
     "http://policy-service:3001/",
     "policy-service:3001",
     "http://policy-graphql:3003",
-    "policy-graphql:3003"
+    "policy-graphql:3003",
+    "tiny-insurer-graphql"
   ]
 
   # In the development environment your application's code is reloaded any time

@@ -29,7 +29,7 @@ services:
     stdin_open: true
     networks:
       - my-bridge
-    command: bash -c "rm -rf tmp/pids/server.pid && bin/setup && rails s -b 0.0.0.0 -p 3003"
+    # command: bash -c "rm -rf tmp/pids/server.pid && bin/setup && rails s -b 0.0.0.0 -p 3003"
 
 volumes:
   rubygems:
