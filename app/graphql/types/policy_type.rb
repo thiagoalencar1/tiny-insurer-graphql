@@ -8,6 +8,6 @@ module Types
     field :insured_at,    String,             null: false
     field :insured_until, String,             null: false
     field :insured,       Types::InsuredType, null: false
-    field :vehicle,       Types::VehicleType, null: false       
+    field :vehicle,       Types::VehicleType, null: false
   end
 end
