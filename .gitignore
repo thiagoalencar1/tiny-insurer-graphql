@@ -2,3 +2,4 @@
 
 /log/*
 /tmp/pids/
+.byebug_history

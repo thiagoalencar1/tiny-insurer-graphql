@@ -298,6 +298,7 @@ DEPENDENCIES
   graphiql-rails
   graphql
   graphql-ruby
+  jwt
   propshaft
   pry-byebug
   puma (>= 5.0)

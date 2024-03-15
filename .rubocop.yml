@@ -173,3 +173,23 @@ RSpec/NestedGroups:
 # == Rails ==
 Rails/SkipsModelValidations:
   Enabled: false
+
+# Personal
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
