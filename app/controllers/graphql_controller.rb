@@ -13,16 +13,16 @@ class GraphqlController < ApplicationController
     context = {
       # Query context goes here, for example:
       # current_user: current_user,
-      token: request.headers["Authorization"]
+      token: request.headers['Authorization']
     }
     result = TinyInsurerGraphqlSchema.execute(
       query, variables: variables, context: context, operation_name: operation_name
     )
     render json: result
-  rescue StandardError => e
-    raise e unless Rails.env.development?
+  rescue StandardError => exception
+    raise exception unless Rails.env.development?
 
-    handle_error_in_development(e)
+    handle_error_in_development(exception)
   end
 
   private
@@ -51,6 +51,6 @@ class GraphqlController < ApplicationController
       logger.error e.message
       logger.error e.backtrace.join("\n")
 
-      render json: { errors: [{ message: e.message, backtrace: e.backtrace }], data: {} }, status: 500
+      render json: {errors: [{message: e.message, backtrace: e.backtrace}], data: {}}, status: :internal_server_error
     end
 end

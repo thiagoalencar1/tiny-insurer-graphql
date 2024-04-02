@@ -5,6 +5,7 @@ module Types
     description 'Policy'
 
     field :id,            ID,                 null: false
+    field :status,        String,             null: true
     field :insured_at,    String,             null: false
     field :insured_until, String,             null: false
     field :insured,       Types::InsuredType, null: false

@@ -7,7 +7,10 @@ module Mutations
     field :success, String, null: false
 
     def resolve(policy:)
-      conn = Bunny.new(hostname: 'rabbitmq', username: 'admin', password: 'admin').start
+      p '==============='
+      p policy
+      p '==============='
+      conn = Bunny.new(hostname: 'tiny-insurer-rabbitmq', username: 'admin', password: 'admin').start
       ch = conn.create_channel
       queue = ch.queue('create-policy', durable: true)
       queue.publish(policy.to_json)

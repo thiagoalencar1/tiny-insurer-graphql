@@ -15,7 +15,8 @@ Rails.application.configure do
     'policy-graphql:3003',
     'tiny-insurer-graphql',
     'tiny-insurer-web:3000',
-    'tiny-insurer-web'
+    'tiny-insurer-web',
+    'tiny-insurer-rabbitmq'
   ]
 
   # In the development environment your application's code is reloaded any time

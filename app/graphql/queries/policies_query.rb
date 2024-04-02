@@ -10,9 +10,9 @@ module Queries
 
     def policies_request
       token = context[:token]
-      headers = {'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json'}
+      headers = {'Authorization' => "#{token}", 'Content-Type' => 'application/json'}
 
-      uri = URI("http://tiny-insurer-rest:3001/v1/policies")
+      uri = URI('http://tiny-insurer-rest:3001/v1/policies')
       conn = Net::HTTP.new(uri.host, uri.port)
       conn.get(uri.path, headers)
     end
