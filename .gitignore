@@ -4,3 +4,6 @@
 /tmp/pids/
 
 .byebug_history
+
+# ENV FILE
+.env

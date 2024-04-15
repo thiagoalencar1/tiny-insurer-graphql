@@ -29,7 +29,16 @@ services:
     stdin_open: true
     networks:
       - my-bridge
-    # command: bash -c "rm -rf tmp/pids/server.pid && bin/setup && rails s -b 0.0.0.0 -p 3003"
+    command: bash -c "rm -rf tmp/pids/server.pid && bin/setup && rails s -b 0.0.0.0 -p 3003"
+
+  ngrok:
+    image: ngrok/ngrok:alpine
+    container_name: ngrok
+    command: http --domain=equal-purely-flamingo.ngrok-free.app tiny-insurer-graphql:3003
+    env_file:
+      - .env
+    networks:
+      - my-bridge
 
 volumes:
   rubygems:

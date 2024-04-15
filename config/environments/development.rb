@@ -16,7 +16,8 @@ Rails.application.configure do
     'tiny-insurer-graphql',
     'tiny-insurer-web:3000',
     'tiny-insurer-web',
-    'tiny-insurer-rabbitmq'
+    'tiny-insurer-rabbitmq',
+    "equal-purely-flamingo.ngrok-free.app"
   ]
 
   # In the development environment your application's code is reloaded any time
