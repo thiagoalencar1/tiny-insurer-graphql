@@ -22,8 +22,6 @@ class WebhooksController < ApplicationController
 
   # This is your Stripe CLI webhook secret for testing your endpoint locally.
   ENDPOINT_SECRET = 'whsec_IcXAvcyWkUliyCPncX6qddPsxNBIo7hy'
-  # whsec_IcXAvcyWkUliyCPncX6qddPsxNBIo7hy
-
   # set :port, 4242
 
   def update # rubocop:disable all
@@ -65,26 +63,22 @@ class WebhooksController < ApplicationController
       ) {
         updatePayment (
           input: {
-            policy:{
-              payment_id: $payment_id
-              status: 'active'
+            paymentData:{
+              paymentId: $payment_id
+              status: $status
             }
           }
         ) { success }
       }",
       variables: {
         payment_id: @payment_id,
-        status: @payment_status
+        status: 'active'
       }
     }
   end
 
   def send_request(payment_update)
-    uri = URI('http://0.0.0.0:3003/graphql')
-    http = Net::HTTP.new(uri.host, uri.port)
     header = {'Content-Type': 'application/json'}
-    request = Net::HTTP::Post.new(uri.path, header)
-    request.body = payment_update.to_json
-    http.request(request)
+    Faraday.new(url: 'http://localhost:3003').post('/graphql', payment_update.to_json, header)
   end
 end

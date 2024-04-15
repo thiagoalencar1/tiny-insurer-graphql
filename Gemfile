@@ -44,5 +44,6 @@ end
 
 # Project Gems
 gem 'bunny'
+gem 'faraday'
 gem 'graphql'
 gem 'stripe'

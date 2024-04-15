@@ -7,7 +7,6 @@ module Mutations
     field :success, String, null: false
 
     def resolve(payment_data:)
-      debugger
       p '==============='
       p payment_data
       p '==============='
