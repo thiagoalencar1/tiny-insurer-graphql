@@ -78,7 +78,8 @@ class WebhooksController < ApplicationController
   end
 
   def send_request(payment_update)
+    url = URI('http://localhost:3003/graphql')
     header = {'Content-Type': 'application/json'}
-    Faraday.new(url: 'http://localhost:3003').post('/graphql', payment_update.to_json, header)
+    Net::HTTP.post(url, payment_update.to_json, header)
   end
 end
