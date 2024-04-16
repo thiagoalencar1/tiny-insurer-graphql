@@ -18,6 +18,7 @@ class GraphqlController < ApplicationController
     result = TinyInsurerGraphqlSchema.execute(
       query, variables: variables, context: context, operation_name: operation_name
     )
+
     render json: result
   rescue StandardError => exception
     raise exception unless Rails.env.development?

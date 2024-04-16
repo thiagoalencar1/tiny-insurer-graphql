@@ -22,7 +22,7 @@ gem 'tzinfo-data', platforms: [:windows, :jruby]
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: [ :mri, :windows ]
+  gem 'debug', platforms: [:mri, :windows]
   gem 'pry-byebug'
 
   gem 'graphiql-rails'
@@ -45,3 +45,4 @@ end
 # Project Gems
 gem 'bunny'
 gem 'graphql'
+gem 'stripe'
