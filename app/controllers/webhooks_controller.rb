@@ -15,23 +15,23 @@ class WebhooksController < ApplicationController
     case event.type
     when 'checkout.session.async_payment_failed'
       session = event.data.object
-    when 'checkout.session.async_paymenceeded'
+    when 'checkout.session.async_payment_succeeded'
       session = event.data.object
     when 'checkout.session.completed'
       session = event.data.object
       @payment_id = session.id
       @payment_status = session.status
+
       send_request(payment_update)
 
-      status 200
     when 'checkout.session.expired'
       session = event.data.object
-    # ... handle other event types
     else
       puts "Unhandled event type: #{event.type}"
     end
 
-    status 200
+    # head :ok
+    # head :bad_request
   end
 
   def payment_update
