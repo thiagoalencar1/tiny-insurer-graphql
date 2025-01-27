@@ -1,12 +1,14 @@
 # README
 
 ## DESCRIPTION
-Tiny Insurer App is a learning process in messaging (with RabbitMQ) and graphql topics.
+Tiny Insurer App is a learning process in messaging (with RabbitMQ), GraphQL and websockets topics.
 
 The app simulates an Insurer Company that receive Insured and Vehicle informations and emmit an insured policy to the client.
 
-This is a two part app that needs to run side-by-side.
-The second-parte is here: [Tiny Insurer App - Rest API](https://github.com/thiagoalencar1/tiny-insurer-rest).
+This is a three part app that needs to run side-by-side.
+- [Tiny Insurer Web](https://github.com/thiagoalencar1/tiny-insurer-web/)
+- Tiny Insurer GraphQL (this)
+- [Tiny Insurer App - Rest API](https://github.com/thiagoalencar1/tiny-insurer-rest).
 
 ## STACK
 - Docker
